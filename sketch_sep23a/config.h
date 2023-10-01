@@ -12,6 +12,10 @@ namespace flashLight_driver {
         {"ssid", "Xiaomi-bx53"},
         {"password", "08252234799"}
     };
+    //设置可用引脚集合
+    static std::map<std::string, std::vector<uint8_t>> led_pins {
+        {"PIN_VEC", {4, 14, 27, 16}}
+    };
 }
 
 
