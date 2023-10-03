@@ -21,24 +21,30 @@ class pwmController
 public:
     //构造函数
     pwmController(const std::vector<uint8_t> &pins) {
-        for (auto pin : pins) {
+            for (auto pin : pins) {
             pwmProperty pwm;
             pwm.pin = pin;
-            pwmProperties.push_back(pwm);
+            pwmProperties[pin] = pwm;
         }
     }
     void init();
+    //查看当前引脚的状态
+    void pwm_pin_status();
     //为指定引脚设置占空比
     void pwm_set_duty(uint8_t pin, uint8_t duty);
+    void pwm_set_duty(uint8_t duty);
     //为指定注册的引脚设置频率
     void pwm_set_freq(uint8_t pin, uint8_t freq);
+    void pwm_set_freq(uint8_t freq);
     //为指定注册的引脚设置分辨率
     void pwm_set_resolution(uint8_t pin, uint8_t resolution);
+    void pwm_set_resolution(uint8_t resolution);
     //为指定注册的引脚设置通道
     void pwm_set_channel(uint8_t pin, uint8_t channel);
+    void pwm_set_channel(uint8_t channel);
 
 private:
-    std::vector<pwmProperty> pwmProperties;
+   std::map<uint8_t, pwmProperty> pwmProperties; 
 };
 
 

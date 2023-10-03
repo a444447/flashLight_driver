@@ -1,6 +1,6 @@
 #include <WiFi.h>
 
-const char *ssid = "Xiaomi-bx53";
+const char *ssid = "TP-LINK_9682";
 const char *password = "08252234799";
 
 void setup() {
