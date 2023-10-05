@@ -1,13 +1,18 @@
 #include "pwmController.h"
 
-void pwmController::init() {
+void pwmController::init(uint8_t freq, uint8_t resolution) {
+    uint8_t channel{0};
     for (auto &pair : pwmProperties) {
         pwmProperty &pwm = pair.second;
+        pwm.freq = freq;
+        pwm.resolution = resolution;
         if (!pwm.isAttach) {
-            ledcSetup(pwm.channel, pwm.freq, pwm.resolution);
-            ledcAttachPin(pwm.pin, pwm.channel);
+            ledcSetup(pwm.channel, freq, resolution);
+            ledcAttachPin(pwm.pin, channel);
             pwm.isAttach = true;
+            pwm.channel = channel;
         }
+        channel++;
     }
 }
 

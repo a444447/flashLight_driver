@@ -27,7 +27,7 @@ public:
             pwmProperties[pin] = pwm;
         }
     }
-    void init();
+    void init(uint8_t freq, uint8_t resolution);
     //查看当前引脚的状态
     void pwm_pin_status();
     //为指定引脚设置占空比
