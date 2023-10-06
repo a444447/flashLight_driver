@@ -7,7 +7,6 @@ LED::LED(uint8_t pin, uint8_t channel, uint8_t freq, uint8_t resolution)
 }
 
 LED::~LED() {
-    // 你可以在这里添加析构函数的内容，如果需要的话
 }
 
 void LED::setBrightness(float percentage) {
